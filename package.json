@@ -6,7 +6,7 @@
   "scripts": {
     "serve": "live-server public/  --verbose",
     "build": "webpack",
-    "dev-server": "webpack-dev-server --mode=development"
+    "dev-server": "webpack-dev-server "
   },
   "keywords": [],
   "author": "ravraw",
@@ -22,6 +22,7 @@
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
     "react-modal": "^3.5.1",
+    "redux": "^4.0.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.0",
     "validator": "^10.7.1",
