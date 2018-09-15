@@ -25,6 +25,7 @@
     "redux": "^4.0.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.0",
+    "uuid": "^3.3.2",
     "validator": "^10.7.1",
     "webpack-dev-server": "^3.1.8"
   },
