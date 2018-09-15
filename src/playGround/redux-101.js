@@ -1,33 +1,34 @@
 import { createStore } from "redux";
 
+// ACTION GENERATORS
+
+const incrementCount = (incrementBy = 1) => ({
+  type: "INCREMENT_COUNT",
+  incrementBy
+});
+// const incrementCount = ({ incrementBy = 1 } = {}) => ({
+//   type: "INCREMENT_COUNT",
+//   incrementBy
+// });
+
+const decrementCount = ({ decrementBy = 1 } = {}) => ({
+  type: "DECREMENT_COUNT",
+  decrementBy
+});
+
+const resetCount = ({ resetBy = 0 } = {}) => ({ type: "RESET_COUNT", resetBy });
+
+//REDUCER
+
 const store = createStore((state = { count: 0 }, action) => {
-  console.log(action);
   switch (action.type) {
-    // increment
     case "INCREMENT_COUNT":
-      const incrementBy =
-        action.payload && typeof action.payload.incrementBy === "number"
-          ? action.payload.incrementBy
-          : 1;
-      return { count: state.count + incrementBy };
+      return { count: state.count + action.incrementBy };
     case "DECREMENT_COUNT":
-      // decrement
-      const decrementBy =
-        action.payload && typeof action.payload.decrementBy === "number"
-          ? action.payload.decrementBy
-          : 1;
-      return { count: state.count - decrementBy };
+      return { count: state.count - action.decrementBy };
     case "RESET_COUNT":
-      //reset
-      const resetBy =
-        action.payload && typeof action.payload.resetBy === "number"
-          ? action.payload.resetBy
-          : 0;
-      return {
-        count: resetBy
-      };
+      return { count: action.resetBy };
     default:
-      //default
       return state;
   }
 });
@@ -36,37 +37,9 @@ const unsubscribe = store.subscribe(() => {
   console.log(store.getState());
 });
 
-store.dispatch({
-  type: "INCREMENT_COUNT"
-});
-
-store.dispatch({
-  type: "INCREMENT_COUNT",
-  payload: {
-    incrementBy: 10
-  }
-});
-
-store.dispatch({
-  type: "RESET_COUNT"
-});
-
-store.dispatch({
-  type: "DECREMENT_COUNT"
-});
-
-store.dispatch({
-  type: "DECREMENT_COUNT",
-  payload: {
-    decrementBy: 10
-  }
-});
-
-store.dispatch({
-  type: "RESET_COUNT",
-  payload: {
-    resetBy: 1000
-  }
-});
-
-// unsubscribe();
+store.dispatch(incrementCount());
+store.dispatch(incrementCount(10));
+store.dispatch(resetCount());
+store.dispatch(decrementCount());
+store.dispatch(decrementCount({ decrementBy: 10 }));
+store.dispatch(resetCount({ resetBy: 1000 }));
