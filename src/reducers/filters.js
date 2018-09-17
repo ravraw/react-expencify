@@ -1,6 +1,6 @@
 const filtersReducerDefaultState = {
   text: "",
-  sortBy: "",
+  sortBy: "date",
   startDate: -Infinity,
   endDate: Infinity
 };
