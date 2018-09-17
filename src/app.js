@@ -14,7 +14,7 @@ const store = configureStore();
 store.dispatch(
   addExpense({
     description: "Water bill",
-    note: "Month January,18",
+    note: "water bill for January,18",
     amount: "20000",
     createdAt: 0
   })
@@ -23,7 +23,7 @@ store.dispatch(
 store.dispatch(
   addExpense({
     description: "Rent bill",
-    note: "Month January,18",
+    note: "Rent for January,18",
     amount: "10000",
     createdAt: 2
   })
@@ -31,7 +31,7 @@ store.dispatch(
 store.dispatch(
   addExpense({
     description: "Gas bill",
-    note: "Month January,18",
+    note: "Gas bill for  January,18",
     amount: "15000",
     createdAt: 1
   })

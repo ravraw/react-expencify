@@ -8,14 +8,17 @@ const now = moment();
 console.log(now.format("MMM Do YYYY"));
 
 class ExpenseForm extends React.Component {
-  state = {
-    description: "",
-    note: "",
-    amount: "",
-    createdAt: moment(),
-    calendarFocused: false,
-    error: ""
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      description: props.expense.description || "",
+      note: props.expense.note || "",
+      amount: (props.expense.amount / 100).toString() || "",
+      createdAt: moment(props.expense.createdAt) || moment(),
+      calendarFocused: false,
+      error: ""
+    };
+  }
 
   onDescriptionChange = e => {
     this.setState({ description: e.target.value });
@@ -58,6 +61,7 @@ class ExpenseForm extends React.Component {
   };
 
   render(props) {
+    console.log(this.props);
     return (
       <div>
         {this.state.error && <p style={{ color: "red" }}>{this.state.error}</p>}

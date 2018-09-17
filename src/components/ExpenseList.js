@@ -16,7 +16,6 @@ const ExpenseList = props => {
     <div>
       <h1>Expense LIST</h1>
       {ExpList}
-      {props.filters.text}
     </div>
   );
 };
