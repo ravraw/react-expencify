@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import moment from "moment";
 import AppRouter from "./routes/AppRouter";
 import { Provider } from "react-redux";
 import configureStore from "./store/configureStore";
@@ -50,7 +51,6 @@ store.dispatch(
 // }, 9000);
 
 const state = store.getState();
-console.log(store);
 
 const filteredExpenses = getFilteredExpenses(state.expenses, state.filters);
 // console.log(filteredExpenses);

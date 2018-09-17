@@ -5,16 +5,16 @@ import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
 
 const now = moment();
-console.log(now.format("MMM Do YYYY"));
 
 class ExpenseForm extends React.Component {
   constructor(props) {
     super(props);
+    console.log(props);
     this.state = {
-      description: props.expense.description || "",
-      note: props.expense.note || "",
-      amount: (props.expense.amount / 100).toString() || "",
-      createdAt: moment(props.expense.createdAt) || moment(),
+      description: this.props.expense.description || "",
+      note: this.props.expense.note || "",
+      amount: (this.props.expense.amount / 100).toString() || "",
+      createdAt: moment(this.props.expense.createdAt) || moment(),
       calendarFocused: false,
       error: ""
     };

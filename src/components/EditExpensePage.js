@@ -4,34 +4,32 @@ import ExpenseForm from "./ExpenseForm";
 import { editExpense, removeExpense } from "../actions/expenses";
 
 const EditExpensePage = props => {
-  const expense = props.expenses.find(exp => exp.id === props.match.params.id);
-  // console.log(expense);
   return (
     <div>
-      <h3>{expense.description}</h3>
+      <ExpenseForm
+        expense={props.expense}
+        onSubmit={expense => {
+          props.dispatch(editExpense(props.expense.id, expense));
+          props.history.push("/");
+        }}
+      />
       <button
         onClick={() => {
-          props.dispatch(removeExpense({ id: expense.id }));
+          props.dispatch(removeExpense({ id: props.expense.id }));
           props.history.push("/");
         }}
       >
         Remove
       </button>
-
-      <ExpenseForm
-        expense={expense}
-        onSubmit={updatedExp => {
-          props.dispatch(editExpense(expense.id, updatedExp));
-          props.history.push("/");
-        }}
-      />
     </div>
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, props) => {
   return {
-    expenses: state.expenses
+    expense: state.expenses.find(
+      expense => expense.id === props.match.params.id
+    )
   };
 };
 
