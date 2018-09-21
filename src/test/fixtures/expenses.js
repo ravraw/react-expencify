@@ -6,7 +6,7 @@ const expenses = [
     description: "expense number one",
     note: "note for expense 1",
     amount: 1000,
-    createdAt: moment(0)
+    createdAt: 0
   },
   {
     id: 0,

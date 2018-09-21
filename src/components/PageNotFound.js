@@ -9,4 +9,3 @@ const PageNotFound = () => (
 );
 
 export default PageNotFound;
-2;

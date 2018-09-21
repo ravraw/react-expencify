@@ -1,5 +1,6 @@
 module.exports = {
-  setupFiles: ["raf/polyfill", "<root>/src/test/setupTest.js"],
+  snapshotSerializers: ["enzyme-to-json/serializer"],
+  setupFiles: ["raf/polyfill", "<rootDir>/src/test/setupTest.js"],
   moduleNameMapper: {
     "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
       "<rootDir>/__mocks__/fileMock.js",

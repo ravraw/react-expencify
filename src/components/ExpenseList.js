@@ -3,7 +3,7 @@ import ExpenseListItem from "./ExpenseListItem";
 import getFilteredExpenses from "../selectors/getFilteredExpenses";
 import { connect } from "react-redux";
 
-const ExpenseList = props => {
+export const ExpenseList = props => {
   const filteredExpenses = getFilteredExpenses(props.expenses, props.filters);
 
   const ExpList = filteredExpenses.map((el, index) => (
@@ -11,7 +11,6 @@ const ExpenseList = props => {
       <ExpenseListItem {...el} />
     </div>
   ));
-
   return (
     <div>
       <h1>Expense LIST</h1>
